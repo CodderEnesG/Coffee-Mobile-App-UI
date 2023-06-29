@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor:"black"
   },
   title: {
     fontSize: 34,
@@ -21,6 +22,7 @@ const styles = StyleSheet.create({
     height: 129,
     fontWeight: "600",
     fontFamily: "SoraBold",
+    color:"white"
   },
   subTitle: {
     fontSize: 14,
