@@ -9,21 +9,32 @@ import {
   FlatList,
   ScrollView,
 } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { useNavigation } from "@react-navigation/native";
 import React, { useLayoutEffect, useState } from "react";
 import styles from "./MainScreen.Style";
 import { useFonts } from "expo-font";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Entypo } from "@expo/vector-icons";
+import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import CoffeeCard from "./Cards/CoffeeCard";
+import { useRouter } from "expo-router";
 
-const MainScreen = ({ navigation }) => {
+
+const MainScreen = ({ navigation , item }) => {
   const Stack = createNativeStackNavigator();
   const coffeeTypes = ["Americano", "Latte", "Machiato"];
   const [activeCoffeeType, setActiveCoffeeType] = useState("Americano");
-  const [even, setEven] = useState(false);
+  const router = useRouter();
 
+  const [selectedCard, setSelectedCard] = useState();
+  const CardContents = require("../MainScreen/Cards/CoffeeCardData.json");
+
+
+  const handleCardPress = (CardContents) => {
+    router.push(`/coffee-details/${CardContents._id}`);
+    setSelectedCard(CardContents._id);
+  };
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShadowVisible: false,
@@ -32,12 +43,12 @@ const MainScreen = ({ navigation }) => {
         <View style={styles.header}>
           <View style={styles.locationContainer}>
             <Text style={styles.location}>Location</Text>
-            <Text style={styles.mainLocation}>Istanbul/Turkiye</Text>
+            <Text style={styles.mainLocation}>Istanbul, Turkiye</Text>
           </View>
           <View>
             <Image
               style={styles.headerImage}
-              source={require("../../assets/kemal.jpg")}
+              source={require("../../assets/sago.jpeg")}
             />
           </View>
         </View>
@@ -57,23 +68,25 @@ const MainScreen = ({ navigation }) => {
   if (!fontsLoaded) {
     return null;
   }
+
+
   return (
-    <SafeAreaView style={{ flex: 1, height: 1500 }}>
+    <SafeAreaView style={{ flex: 1, height: "auto" }}>
       <ScrollView contentContainerStyle={styles.searchContainer}>
         <View style={styles.topContainer}>
-        <View style={styles.inputContainer}>
-          <Ionicons name="md-search" size={24} color="white" />
-          <TextInput
-            placeholderTextColor="#989898"
-            placeholder="Search Coffee"
-            style={styles.input}
-          ></TextInput>
-          <View style={styles.iconContainer}>
-            <Entypo name="sound-mix" size={24} color="white" />
+          <View style={styles.inputContainer}>
+            <Ionicons name="md-search" size={24} color="white" />
+            <TextInput
+              placeholderTextColor="#989898"
+              placeholder="Search Coffee"
+              style={styles.input}
+            ></TextInput>
+            <View style={styles.iconContainer}>
+              <Entypo name="sound-mix" size={24} color="white" />
+            </View>
           </View>
         </View>
-        </View>
-    
+
         <Image
           style={styles.buy_one}
           source={require("../../assets/buy_one.png")}
@@ -93,94 +106,21 @@ const MainScreen = ({ navigation }) => {
           />
         </View>
         <View style={styles.coffeeCardsContainer}>
-          <View style={styles.coffeeCard}>
-            <View style={styles.cardImageContainer}>
-              <Image
-                style={styles.cardImage}
-                source={require("../../assets/Cappuccino.jpg")}
-              />
-            </View>
-            <View style={styles.cardInfoContainer}>
-              <View>
-                <Text style={styles.cardTitle}>Cappucino</Text>
-                <Text style={styles.cardSubtitle}>with Chocolate</Text>
-              </View>
-              <View style={styles.priceContainer}>
-                <Text style={styles.cardPrice}>$ 4.53</Text>
-                <View style={styles.cardIconContainer}>
-                  <Entypo name="plus" size={16} color="white" />
-                </View>
-              </View>
-            </View>
-          </View>
-          <View style={styles.coffeeCard}>
-            <View style={styles.cardImageContainer}>
-              <Image
-                style={styles.cardImage}
-                source={require("../../assets/Cappuccino.jpg")}
-              />
-            </View>
-            <View style={styles.cardInfoContainer}>
-              <View>
-                <Text style={styles.cardTitle}>Cappucino</Text>
-                <Text style={styles.cardSubtitle}>with Chocolate</Text>
-              </View>
-              <View style={styles.priceContainer}>
-                <Text style={styles.cardPrice}>$ 4.53</Text>
-                <View style={styles.cardIconContainer}>
-                  <Entypo name="plus" size={16} color="white" />
-                </View>
-              </View>
-            </View>
-          </View>
-          <View style={styles.coffeeCard}>
-            <View style={styles.cardImageContainer}>
-              <Image
-                style={styles.cardImage}
-                source={require("../../assets/Cappuccino.jpg")}
-              />
-            </View>
-            <View style={styles.cardInfoContainer}>
-              <View>
-                <Text style={styles.cardTitle}>Cappucino</Text>
-                <Text style={styles.cardSubtitle}>with Chocolate</Text>
-              </View>
-              <View style={styles.priceContainer}>
-                <Text style={styles.cardPrice}>$ 4.53</Text>
-                <View style={styles.cardIconContainer}>
-                  <Entypo name="plus" size={16} color="white" />
-                </View>
-              </View>
-            </View>
-          </View>
-          <View style={styles.coffeeCard}>
-            <View style={styles.cardImageContainer}>
-              <Image
-                style={styles.cardImage}
-                source={require("../../assets/Cappuccino.jpg")}
-              />
-            </View>
-            <View style={styles.cardInfoContainer}>
-              <View>
-                <Text style={styles.cardTitle}>Cappucino</Text>
-                <Text style={styles.cardSubtitle}>with Chocolate</Text>
-              </View>
-              <View style={styles.priceContainer}>
-                <Text style={styles.cardPrice}>$ 4.53</Text>
-                <View style={styles.cardIconContainer}>
-                  <Entypo name="plus" size={16} color="white" />
-                </View>
-              </View>
-            </View>
-          </View>
-          {/* <View style={styles.coffeeCardOdd}>
-
-          </View>
-          <View  style={styles.coffeeCard}>
-
-          </View> */}
+          {CardContents.map((CardContent) => {
+            return (
+              <CoffeeCard key={CardContent._id} item={item}
+              selectedCard={selectedCard}
+              handleCardPress={handleCardPress} CardContent={CardContent} />
+            );
+          })}
         </View>
       </ScrollView>
+      <View style={styles.footer}>
+        <Entypo name="home" size={24} color="#C67C4E" />
+        <Entypo name="heart" size={24} color="black" />
+        <MaterialIcons name="shopping-bag" size={24} color="black" />
+        <MaterialCommunityIcons name="bell" size={24} color="black" />
+      </View>
     </SafeAreaView>
   );
 };

@@ -26,12 +26,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: "SoraMedium",
     fontWeight: "600",
-    color: "white",
+    color: "#DDDDDD",
   },
   searchContainer: {
     width: "100%",
-    alignItems:"center",
-    backgroundColor:"#F9F9F9"
+    alignItems: "center",
+    backgroundColor: "#F9F9F9",
+    paddingBottom:70,
   },
   inputContainer: {
     width: 315,
@@ -44,11 +45,11 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
   },
-  topContainer:{
-    width:"100%",
-    alignItems:"center",
-    backgroundColor:"#202020",
-    height:130
+  topContainer: {
+    width: "100%",
+    alignItems: "center",
+    backgroundColor: "#202020",
+    height: 130,
   },
   input: {
     width: 200,
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     width: 315,
     height: 150,
     borderRadius: 16,
-    marginTop: 24,
+    marginTop: -70,
   },
   tab: (activeCoffeeType, item) => ({
     //  paddingVertical: 6,
@@ -97,53 +98,21 @@ const styles = StyleSheet.create({
     marginTop: 24,
     justifyContent: "space-between",
   },
-  coffeeCard: {
-    width: 150,
-    height: 240,
-    backgroundColor: "white",
-    borderRadius: 16,
-    marginBottom: 20,
-    paddingBottom: 16,
-  },
-  cardInfoContainer: {
-    paddingLeft:12,
-    paddingRight:12,
-    paddingBottom:12,
-    marginTop:12,
-  },
-  cardImage: {
+  footer: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
     width: "100%",
-    height: 130,
-    borderRadius: 16,
-  },
-  cardTitle: {
-    fontSize: 16,
-    fontFamily: "SoraMedium",
-  },
-  cardSubtitle:{
-    fontFamily:"SoraRegular",
-    color:"#9B9B9B",
-    fontSize:12,
-  },
-  priceContainer:{
-    width:"100%",
-    flexDirection:"row",
+    height: 70,
+    backgroundColor: "white",
+    borderRadius:24,
+    paddingLeft:50,
+    paddingRight:50,
     justifyContent:"space-between",
-    marginTop:12
-  },
-  cardPrice:{
-    fontSize:18,
-    fontFamily: "SoraMedium",
-
-  },
-  cardIconContainer:{
-    width:32,
-    height:32,
-    backgroundColor:"#C67C4E",
-    justifyContent:"center",
     alignItems:"center",
-    borderRadius:10
-  }
+    flexDirection:"row"
+  },
 });
 
 export default styles;
