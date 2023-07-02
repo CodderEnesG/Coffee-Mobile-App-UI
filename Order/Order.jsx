@@ -84,27 +84,49 @@ const Order = ({ navigation }) => {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={styles.productsContainer}>
+        <View style={styles.product}>
           <View style={styles.productContainer}>
-            <Image/>
+            <Image
+              style={styles.productImage}
+              source={require("../assets/Americano2.jpeg")}
+            />
             <View style={styles.productInfoContainer}>
-              <Text style={styles.productTitle}></Text>
-              <Text style={styles.productSubtitle}></Text>
+              <Text style={styles.productTitle}>Americano</Text>
+              <Text style={styles.productSubtitle}>Classic</Text>
             </View>
           </View>
           <View style={styles.productButtonsContainer}>
             <TouchableOpacity style={styles.productButton}>
-
+              <Text style={styles.productButtonNumber}>-</Text>
             </TouchableOpacity>
-            <Text>
-
-            </Text>
+            <Text style={styles.productButtonNumber}>1</Text>
             <TouchableOpacity style={styles.productButton}>
-              
-              </TouchableOpacity>
+              <Text style={styles.productButtonNumber}>+</Text>
+            </TouchableOpacity>
           </View>
-
         </View>
+        <View style={styles.product}>
+          <View style={styles.productContainer}>
+            <Image
+              style={styles.productImage}
+              source={require("../assets/Cappuccino.jpg")}
+            />
+            <View style={styles.productInfoContainer}>
+              <Text style={styles.productTitle}>Cappuccino</Text>
+              <Text style={styles.productSubtitle}>with Chocolate</Text>
+            </View>
+          </View>
+          <View style={styles.productButtonsContainer}>
+            <TouchableOpacity style={styles.productButton}>
+              <Text style={styles.productButtonNumber}>-</Text>
+            </TouchableOpacity>
+            <Text style={styles.productButtonNumber}>1</Text>
+            <TouchableOpacity style={styles.productButton}>
+              <Text style={styles.productButtonNumber}>+</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+        
       </ScrollView>
     </SafeAreaView>
   );
