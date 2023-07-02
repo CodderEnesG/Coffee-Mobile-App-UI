@@ -118,7 +118,8 @@ const MainScreen = ({ navigation , item }) => {
       <View style={styles.footer}>
         <Entypo name="home" size={24} color="#C67C4E" />
         <Entypo name="heart" size={24} color="black" />
-        <MaterialIcons name="shopping-bag" size={24} color="black" />
+      
+        <MaterialIcons onPress={() => navigation.navigate('Order')} name="shopping-bag" size={24} color="black" />
         <MaterialCommunityIcons name="bell" size={24} color="black" />
       </View>
     </SafeAreaView>

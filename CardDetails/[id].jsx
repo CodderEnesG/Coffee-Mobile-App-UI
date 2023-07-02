@@ -7,8 +7,8 @@ import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
 
+
 const CardDetails = ({ navigation  }) => {
-  const Stack = createNativeStackNavigator();
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -88,7 +88,7 @@ const CardDetails = ({ navigation  }) => {
           <Text style={styles.priceTitle}>Price</Text>
           <Text style={styles.price}>$4.53</Text>
         </View>
-        <TouchableOpacity style={styles.buyButton}>
+        <TouchableOpacity onPress={() => navigation.navigate('Order')} style={styles.buyButton}>
           <Text style={styles.buyText}>Buy Now</Text>
         </TouchableOpacity>
         </View>
