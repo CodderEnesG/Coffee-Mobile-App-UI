@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
 import MainScreen from "./screens/MainScreen/MainScreen";
+import ID from "./CardDetails/[id]"
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,7 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Main"  component={MainScreen} />
+        <Stack.Screen name="ID"  component={ID} />
       </Stack.Navigator>
     </NavigationContainer>
   );

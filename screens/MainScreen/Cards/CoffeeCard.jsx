@@ -4,10 +4,14 @@ import styles from "./CoffeeCardStyle";
 import { Entypo } from "@expo/vector-icons";
 import Images from "../../../modules/Images";
 import { FontAwesome } from '@expo/vector-icons'; 
+import { useNavigation } from "@react-navigation/native";
+
 
 const CoffeeCard = ({ CardContent , item , handleCardPress }) => {
+  const navigation = useNavigation();
+
   return (
-    <TouchableOpacity onPress={() => handleCardPress(item)}
+    <TouchableOpacity onPress={() => navigation.navigate('ID')}
     style={styles.coffeeCard}>
       <View style={styles.cardImageContainer}>
         <Image style={styles.cardImage} source={Images[CardContent.image]} />

@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { FONT } from "../constants/index";
+
 
 const styles = StyleSheet.create({
   mainImage: {
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     marginTop: 24,
     marginBottom: 30,
   },
+
 });
 
 export default styles;

@@ -18,14 +18,14 @@ import { Entypo } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import CoffeeCard from "./Cards/CoffeeCard";
-import { useRouter } from "expo-router";
+// import { useRouter } from "expo-router";
 
 
 const MainScreen = ({ navigation , item }) => {
   const Stack = createNativeStackNavigator();
   const coffeeTypes = ["Americano", "Latte", "Machiato"];
   const [activeCoffeeType, setActiveCoffeeType] = useState("Americano");
-  const router = useRouter();
+  // const router = useRouter();
 
   const [selectedCard, setSelectedCard] = useState();
   const CardContents = require("../MainScreen/Cards/CoffeeCardData.json");
