@@ -38,7 +38,7 @@ const HomeScreen = () => {
       </Text>
       <TouchableOpacity onPress={() =>
         navigation.navigate('Main')} style={styles.button}>
-        <Text style={{fontFamily:"SoraMedium" , fontSize:16}}>Get Started</Text>
+        <Text style={{fontFamily:"SoraMedium" , fontSize:16 , color:"white"}}>Get Started</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

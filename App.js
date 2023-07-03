@@ -7,6 +7,8 @@ import { useFonts } from "expo-font";
 import MainScreen from "./screens/MainScreen/MainScreen";
 import ID from "./CardDetails/[id]"
 import Order from "./Order/Order"
+import Map from "./MapSection/Map"
+
 
 const Stack = createNativeStackNavigator();
 
@@ -19,6 +21,8 @@ export default function App() {
         <Stack.Screen name="Main"  component={MainScreen} />
         <Stack.Screen name="ID"  component={ID} />
         <Stack.Screen name="Order"  component={Order} />
+        <Stack.Screen name="Map"  component={Map} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
