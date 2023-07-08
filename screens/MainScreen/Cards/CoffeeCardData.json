@@ -4,6 +4,7 @@
         "image":"Americano",
 		"title": "Americano",
         "subtitle":"Classic",
+        "desc":"An Americano is made by pouring hot water over one or two espresso shots, resulting in a drink of similar volume and strength to regular coffee.",
         "price":"4.99",
         "point":"4.9"
 
@@ -13,6 +14,7 @@
         "image":"Cappuccino",
 		"title": "Cappuccino",
         "subtitle":"with Chocolate",
+        "desc":"A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml ofespresso coffee and 85ml of fresh milk",
         "price":"4.99",
         "point":"4.8"
 
@@ -22,6 +24,7 @@
         "image":"Mocha",
 		"title": "Mocha",
         "subtitle":"with White Chocolate",
+        "desc":"What a mocha is made of. Although a mocha is often interpreted differently across the world, the basis is that a shot of espresso is combined with a chocolate powder or syrup, followed by milk or cream.",
         "price":"4.99",
         "point":"4.7"
 	}

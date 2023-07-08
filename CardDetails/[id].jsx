@@ -6,9 +6,18 @@ import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { useRoute } from "@react-navigation/native";
+import Images from "../modules/Images";
+
 
 
 const CardDetails = ({ navigation  }) => {
+
+  const {
+    params:{
+      CardContent
+    },
+  } = useRoute();
 
   useLayoutEffect(() => {
     navigation.setOptions({
@@ -41,15 +50,15 @@ const CardDetails = ({ navigation  }) => {
         <View style={styles.mainImageContainer}>
           <Image
             style={styles.mainImage}
-            source={require("../assets/Americano2.jpeg")}
+            source={Images[CardContent.image]}
           />
         </View>
-        <Text style={styles.title}>Cappuccino</Text>
-        <Text style={styles.subTitle}>with Chocolate</Text>
+        <Text style={styles.title}>{CardContent.title}</Text>
+        <Text style={styles.subTitle}>{CardContent.subtitle}</Text>
         <View style={styles.iconsContainer}>
           <View style={styles.leftContainer}>
-            <FontAwesome name="star" size={20} color="#FBBE21" />
-            <Text style={styles.stars}>4.8</Text>
+            <FontAwesome style={{marginTop:1.5}} name="star" size={20} color="#FBBE21" />
+            <Text style={styles.stars}>{CardContent.point}</Text>
           </View>
           <View style={styles.rightContainer}>
             <View style={styles.square}>
@@ -66,8 +75,7 @@ const CardDetails = ({ navigation  }) => {
         </View>
         <Text style={styles.descTitle}>Description</Text>
         <Text style={styles.desc}>
-          A cappuccino is an approximately 150 ml (5 oz) beverage, with 25 ml of
-          espresso coffee and 85ml of fresh milk
+         {CardContent.desc}
         </Text>
         <Text style={styles.sizeTitle}>Size</Text>
         <View style={styles.sizesContainer}>
@@ -86,7 +94,7 @@ const CardDetails = ({ navigation  }) => {
         <View style={styles.footerContainer}>
         <View style={styles.priceContainer}>
           <Text style={styles.priceTitle}>Price</Text>
-          <Text style={styles.price}>$4.53</Text>
+          <Text style={styles.price}>$ {CardContent.price}</Text>
         </View>
         <TouchableOpacity onPress={() => navigation.navigate('Order')} style={styles.buyButton}>
           <Text style={styles.buyText}>Buy Now</Text>

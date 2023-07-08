@@ -3,20 +3,29 @@ import React from "react";
 import styles from "./CoffeeCardStyle";
 import { Entypo } from "@expo/vector-icons";
 import Images from "../../../modules/Images";
-import { FontAwesome } from '@expo/vector-icons'; 
+import { FontAwesome } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 
-
-const CoffeeCard = ({ CardContent , item , handleCardPress }) => {
+const CoffeeCard = ({
+  CardContent,
+}) => {
   const navigation = useNavigation();
 
   return (
-    <TouchableOpacity onPress={() => navigation.navigate('ID')}
-    style={styles.coffeeCard}>
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate("ID", {
+         
+          CardContent
+        })
+      }
+      style={styles.coffeeCard}
+  
+    >
       <View style={styles.cardImageContainer}>
         <Image style={styles.cardImage} source={Images[CardContent.image]} />
         <View blurRadius={4} style={styles.starsContainer}>
-        <FontAwesome name="star" size={12} color="#FBBE21" />
+          <FontAwesome name="star" size={12} color="#FBBE21" />
           <Text style={styles.stars}>{CardContent.point}</Text>
         </View>
       </View>

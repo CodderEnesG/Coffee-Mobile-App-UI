@@ -20,8 +20,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import CoffeeCard from "./Cards/CoffeeCard";
 // import { useRouter } from "expo-router";
 
-
-const MainScreen = ({ navigation , item }) => {
+const MainScreen = ({ navigation, item }) => {
   const Stack = createNativeStackNavigator();
   const coffeeTypes = ["Americano", "Latte", "Machiato"];
   const [activeCoffeeType, setActiveCoffeeType] = useState("Americano");
@@ -29,7 +28,6 @@ const MainScreen = ({ navigation , item }) => {
 
   const [selectedCard, setSelectedCard] = useState();
   const CardContents = require("../MainScreen/Cards/CoffeeCardData.json");
-
 
   const handleCardPress = (CardContents) => {
     router.push(`/coffee-details/${CardContents._id}`);
@@ -69,7 +67,6 @@ const MainScreen = ({ navigation , item }) => {
     return null;
   }
 
-
   return (
     <SafeAreaView style={{ flex: 1, height: "auto" }}>
       <ScrollView contentContainerStyle={styles.searchContainer}>
@@ -108,9 +105,19 @@ const MainScreen = ({ navigation , item }) => {
         <View style={styles.coffeeCardsContainer}>
           {CardContents.map((CardContent) => {
             return (
-              <CoffeeCard key={CardContent._id} item={item}
-              selectedCard={selectedCard}
-              handleCardPress={handleCardPress} CardContent={CardContent} />
+              <CoffeeCard
+                key={CardContent._id}
+                item={item}
+                selectedCard={selectedCard}
+                handleCardPress={handleCardPress}
+                _id={CardContents._id}
+                image={CardContents.image}
+                title={CardContents.title}
+                subtitle={CardContents.subtitle}
+                price={CardContents.price}
+                point={CardContents.point}
+                CardContent={CardContent}
+              />
             );
           })}
         </View>
@@ -118,8 +125,13 @@ const MainScreen = ({ navigation , item }) => {
       <View style={styles.footer}>
         <Entypo name="home" size={24} color="#C67C4E" />
         <Entypo name="heart" size={24} color="black" />
-      
-        <MaterialIcons onPress={() => navigation.navigate('Order')} name="shopping-bag" size={24} color="black" />
+
+        <MaterialIcons
+          onPress={() => navigation.navigate("Order")}
+          name="shopping-bag"
+          size={24}
+          color="black"
+        />
         <MaterialCommunityIcons name="bell" size={24} color="black" />
       </View>
     </SafeAreaView>
